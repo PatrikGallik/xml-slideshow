@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<presentation
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.w3schools.com presentation.xsd"
+	>
+
+	<meta>
+		<title>Štandardizované webové stránky</title>
+		<authors>
+			<author>
+				<firstname>Patrik</firstname>
+				<lastname>Gallik</lastname>
+			</author>
+			<author>
+				<firstname>Michal</firstname>
+				<lastname>Garaj</lastname>
+			</author>
+		</authors>
+	</meta>
+
+	<slides>
+
+		<slide colorscheme="green">
+			<heading size="large">Štandardizované webové stránky</heading>
+			<paragraph size="small">Bakalárska práca</paragraph>
+			<paragraph size="medium">
+				Táto prezentácia bola vytvorená ako zadanie predmetu Webové publikovanie
+			</paragraph>
+		</slide>
+
+		<slide colorscheme="orange" >
+			<heading>Použité technológie</heading>
+			<paragraph>
+				Technológie použité na front-ende
+			</paragraph>
+			<box>
+				<box size="33">
+					<image>media/sass.png</image>
+				</box>
+				<box size="33">
+					<image>media/coffee.png</image>
+				</box>
+				<box size="33">
+					<image>media/grunt.png</image>
+				</box>
+			</box>
+		</slide>
+
+		<slide>
+			<heading>Wordpress</heading>
+			<paragraph>
+				Použitý content managment system
+			</paragraph>
+			<box>
+				<box size="50">
+					<paragraph>
+						<list>
+							<listitem>najrozšírenejší CMS</listitem>
+							<listitem>rozsiahla komunita</listitem>
+							<listitem>veľké množstvo pluginov</listitem>
+						</list>
+					</paragraph>
+				</box>
+				<box size="50">
+					<image>media/wp.png</image>
+				</box>
+			</box>
+		</slide>
+
+		<slide colorscheme="orange" background="media/screen.jpg">
+
+		</slide>
+		
+		<slide colorscheme="green">
+			<heading>Ukážka elementov</heading>
+			<paragraph>
+				Toto je <em>zvýraznený</em> text.
+			</paragraph>
+			<box>
+				<box size="33">
+					<paragraph>
+						Toto je textik na slide.
+					</paragraph>
+				</box>
+				<box size="33">
+					<paragraph>
+						Toto je textik na slide.
+					</paragraph>
+				</box>
+				<box size="33">
+					<paragraph>
+						Toto je textik na slide.
+					</paragraph>
+				</box>
+			</box>
+			<box align="left">
+				<box size="25">
+					<heading size="small">
+						Nadpis 'small'
+					</heading>
+					<paragraph>
+						Toto je textik zarovnany dolava.
+					</paragraph>
+				</box>
+				<box size="25">
+					<paragraph>
+						Toto je textik na slide.
+					</paragraph>
+				</box>
+				<box size="50">
+					<paragraph size="medium">
+						Toto je textik na slide, ktory ma velkost 'medium'.
+					</paragraph>
+				</box>
+			</box>
+		</slide>
+
+		<slide colorscheme="blue">
+			<heading>Ďakujem za pozornosť</heading>
+			<image>media/nyon.gif</image>
+		</slide>
+
+	</slides>
+
+</presentation>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.w3schools.com"
+	xmlns="http://www.w3schools.com"
+	elementFormDefault="qualified"
+	>
+
+
+<!-- Presentation -->
+<xs:element name="presentation">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="meta" maxOccurs="1"/>
+			<xs:element name="slides" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- Meta -->
+<xs:element name="meta">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element type="xs:string" name="title"/>
+			<xs:element name="authors">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="author"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- Author -->
+<xs:element name="author">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element type="xs:string" name="firstname"/>
+			<xs:element type="xs:string" name="lastname"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- Slides -->
+<xs:element name="slides">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="slide"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!-- ColorScheme attribute -->
+<xs:simpleType name="colorSchemeAttr">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="orange" />
+    <xs:enumeration value="blue" />
+    <xs:enumeration value="green" />
+  </xs:restriction>
+</xs:simpleType>
+
+<!-- Slide -->
+<xs:element name="slide">
+	<xs:complexType mixed="true">
+		<xs:sequence>
+			<xs:element name="heading" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="paragraph" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="box" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="image" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="list" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute type="colorSchemeAttr" name="colorscheme" use="optional"/>
+		<xs:attribute type="xs:string" name="background" use="optional"/>
+	</xs:complexType>
+</xs:element>
+
+<!--
+	Slide content 
+-->
+
+<!-- Text size attribute -->
+<xs:simpleType name="textSizeAttr">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="large" />
+    <xs:enumeration value="medium" />
+    <xs:enumeration value="small" />
+  </xs:restriction>
+</xs:simpleType>
+
+<!-- Heading -->
+<xs:element name="heading">
+	<xs:complexType mixed="true">
+		<xs:attribute type="textSizeAttr" name="size" use="optional"/>
+	</xs:complexType>
+</xs:element>
+
+<!-- Paragraph -->
+<xs:element name="paragraph">
+  <xs:complexType mixed="true">
+    <xs:sequence>
+      <xs:element type="xs:string" name="em" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="list" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute type="textSizeAttr" name="size" use="optional"/>
+  </xs:complexType>
+</xs:element>
+
+<!-- List -->
+<xs:element name="list">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element type="xs:string" name="listitem" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- Align attribute -->
+<xs:simpleType name="alignAttr">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="left" />
+    <xs:enumeration value="right" />
+    <xs:enumeration value="center" />
+  </xs:restriction>
+</xs:simpleType>
+
+<!-- Size attribute -->
+<xs:simpleType name="sizeAttr">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="25" />
+    <xs:enumeration value="50" />
+    <xs:enumeration value="33" />
+    <xs:enumeration value="100" />
+  </xs:restriction>
+</xs:simpleType>
+
+<!-- Box -->
+<xs:element name="box">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="heading" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="paragraph" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="list" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="image" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute type="alignAttr" name="align" use="optional"/>
+		<xs:attribute type="sizeAttr" name="size" use="optional"/>
+	</xs:complexType>
+</xs:element>
+
+<!-- Image -->
+<xs:element type="xs:string" name="image"/>
+
+</xs:schema>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet version="2.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output method="html" indent="yes"/>
+<xsl:strip-space elements="*" />
+
+
+<!-- Main template -->
+<xsl:template match="/">
+  <html>
+  	<head>
+  		<title><xsl:value-of select="/presentation/meta/title"/></title>
+  		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+  		<link rel="stylesheet" href="style.css"/>
+  		<script type="text/javascript" src="main.js"></script>
+  	</head>
+  <body>
+  	<div class="layer">
+	  	<div class="help">
+		    <div class="arrows">
+		      <i id="goPrev" class="up fa fa-arrow-circle-o-up"></i>
+		      <i id="goNext" class="down fa fa-arrow-circle-o-down"></i>
+		    </div>
+	  	</div>
+	  	<xsl:apply-templates select="presentation/meta"/>
+	</div>
+
+	<xsl:apply-templates select="presentation/slides/slide"/>
+
+  </body>
+  </html>
+</xsl:template>
+
+
+<!-- Slide template -->
+<xsl:template match="slide">
+	<section class="slide">
+		<xsl:attribute name="class">
+		   <xsl:value-of select="current()/@colorscheme" />
+		</xsl:attribute>
+		<xsl:attribute name="data-background">
+		   <xsl:value-of select="current()/@background" />
+		</xsl:attribute>
+		<div class="inner">
+			<xsl:apply-templates />
+		</div>
+	</section>
+</xsl:template>
+
+
+<!-- Heading template -->
+<xsl:template match="heading">
+	<xsl:choose>
+		<xsl:when test="current()[@size='large']">
+			<h1><xsl:value-of select="."/></h1>
+		</xsl:when>
+		<xsl:when test="current()[@size='small']">
+			<h3><xsl:value-of select="."/></h3>
+		</xsl:when>
+		<xsl:otherwise>
+			<h2><xsl:value-of select="."/></h2>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+
+<!-- Paragraph template -->
+<xsl:template match="paragraph">
+	<div>
+		<xsl:attribute name="class">
+		   para <xsl:value-of select="current()/@size" /> 
+		   align-<xsl:value-of select="current()/@align" />
+		</xsl:attribute>
+		<xsl:apply-templates />
+	</div>
+</xsl:template>
+
+
+<!-- List template -->
+<xsl:template match="list">
+	<ul>
+		<xsl:apply-templates />
+	</ul>
+</xsl:template>
+
+
+<!-- List item template -->
+<xsl:template match="listitem">
+	<li>
+		<xsl:apply-templates />
+	</li>
+</xsl:template>
+
+
+<!-- List item template -->
+<xsl:template match="image">
+	<img>
+		<xsl:attribute name="src">
+		   <xsl:value-of select="current()" />
+		</xsl:attribute>
+	</img>
+</xsl:template>
+
+
+<!-- List item template -->
+<xsl:template match="box">
+	<div class="box">
+		<xsl:attribute name="class">
+		   box box-<xsl:value-of select="current()/@size" /> align-<xsl:value-of select="current()/@align"/>
+		</xsl:attribute>
+		<xsl:apply-templates />
+	</div>
+</xsl:template>
+
+
+<!-- Emphasis -->
+<xsl:template match="em">
+	<strong>
+		<xsl:apply-templates />
+	</strong>
+</xsl:template>
+
+
+<!-- Meta informations at the beginning of the document -->
+<xsl:template match="/presentation/meta">
+	<div class="pres-meta">
+		<div class="authors">
+			<xsl:for-each select="authors/author">
+				<div class="author">
+					<xsl:value-of select="firstname"/>
+					<strong>
+						<xsl:value-of select="lastname"/>
+					</strong>
+				</div>
+			</xsl:for-each>
+		</div>
+	</div>
+</xsl:template>
+
+</xsl:stylesheet>
