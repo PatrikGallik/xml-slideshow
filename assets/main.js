@@ -116,6 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	window.onresize = zoomContent;
 	// align zoom on init
-	zoomContent();
+	setTimeout(function() {
+		zoomContent();	
+	});
 
 });

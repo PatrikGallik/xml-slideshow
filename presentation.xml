@@ -13,7 +13,7 @@
 				<lastname>Gallik</lastname>
 			</author>
 			<author>
-				<firstname>Michal</firstname>
+				<firstname>Michael</firstname>
 				<lastname>Garaj</lastname>
 			</author>
 		</authors>
@@ -36,13 +36,13 @@
 			</paragraph>
 			<box>
 				<box size="33">
-					<image>media/sass.png</image>
+					<image>assets/sass.png</image>
 				</box>
 				<box size="33">
-					<image>media/coffee.png</image>
+					<image>assets/coffee.png</image>
 				</box>
 				<box size="33">
-					<image>media/grunt.png</image>
+					<image>assets/grunt.png</image>
 				</box>
 			</box>
 		</slide>
@@ -63,12 +63,12 @@
 					</paragraph>
 				</box>
 				<box size="50">
-					<image>media/wp.png</image>
+					<image>assets/wp.png</image>
 				</box>
 			</box>
 		</slide>
 
-		<slide colorscheme="orange" background="media/screen.jpg">
+		<slide colorscheme="orange" background="assets/screen.jpg">
 
 		</slide>
 		
@@ -118,7 +118,7 @@
 
 		<slide colorscheme="blue">
 			<heading>Ďakujem za pozornosť</heading>
-			<image>media/nyon.gif</image>
+			<image>assets/nyon.gif</image>
 		</slide>
 
 	</slides>
